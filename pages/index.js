@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -31,7 +30,7 @@ export default function ResponsiveDrawer({ toggleTheme }) {
          <Typography
             sx={{ textAlign: 'center', padding: '1em 0' }}
             variant="h6"
-            component="h1"
+            component="h2"
             width={drawerWidth - 1}
          >
             chebaAPIs
@@ -50,14 +49,12 @@ export default function ResponsiveDrawer({ toggleTheme }) {
             ))}
          </List>
          <Divider />
-         <SocialIcons customStyles={{ marginTop: '1em' }} />
-         <ToggleColorMode toggleTheme={toggleTheme} />
+         <SocialIcons customStyles={{ margin: '1em 0' }} />
       </>
    );
 
    return (
       <Box sx={{ display: 'flex' }}>
-         {/* <CssBaseline /> */}
          <AppBar
             position="fixed"
             sx={{
@@ -78,15 +75,7 @@ export default function ResponsiveDrawer({ toggleTheme }) {
                >
                   <MenuIcon />
                </IconButton>
-               <Typography
-                  variant="h6"
-                  noWrap
-                  component="div"
-                  sx={{
-                     textAlign: 'right',
-                     marginLeft: 'auto',
-                  }}
-               ></Typography>
+               <ToggleColorMode toggleTheme={toggleTheme} />
             </Toolbar>
          </AppBar>
          <Box
@@ -131,7 +120,7 @@ export default function ResponsiveDrawer({ toggleTheme }) {
             component="main"
             sx={{
                flexGrow: 1,
-               p: 3,
+               p: 5,
                width: { sm: `calc(100% - ${drawerWidth}px)` },
             }}
          >

@@ -1,38 +1,23 @@
-import { useContext } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-export default function ToggleColorMode({ toggleTheme }) {
-   const theme = useTheme();
+export default function ToggleColorMode({ toggleTheme, customStyles }) {
+   const mode = useTheme().palette.mode;
    const handleTheme = () => {
-      toggleTheme(theme.palette.mode === 'dark' ? 'light' : 'dark');
+      toggleTheme(mode === 'dark' ? 'light' : 'dark');
    };
    return (
       <Box
          sx={{
-            display: 'flex',
-            width: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            // bgcolor: 'background.default',
-            // color: 'text.primary',
-            // borderRadius: 1,
-            // p: 3,
+            marginLeft: 'auto',
+            ...customStyles,
          }}
       >
-         <IconButton
-            // sx={{ ml: 1 }}
-            onClick={handleTheme}
-            color="inherit"
-         >
-            {theme.palette.mode === 'dark' ? (
-               <Brightness7Icon />
-            ) : (
-               <Brightness4Icon />
-            )}
+         <IconButton onClick={handleTheme} color="inherit">
+            {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
          </IconButton>
       </Box>
    );

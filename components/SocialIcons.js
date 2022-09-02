@@ -17,17 +17,17 @@ export default function SocialIcons({ customStyles }) {
          sx={{ ...customStyles }}
          container
          justifyContent="center"
-         alignItems="center"
+         alignItems="baseline"
          gap={1}
       >
          <Grid item>
             <IconLink link={'https://github.com/cheba91'}>
-               <GitHubIcon />
+               <GitHubIcon sx={{ verticalAlign: 'middle' }} />
             </IconLink>
          </Grid>
          <Grid item>
             <IconLink link={'https://www.linkedin.com/in/blazcebasek/'}>
-               <LinkedInIcon />
+               <LinkedInIcon sx={{ verticalAlign: 'middle' }} />
             </IconLink>
          </Grid>
       </Grid>
