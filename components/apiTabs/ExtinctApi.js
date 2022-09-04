@@ -5,6 +5,7 @@ import {
    CardActions,
    Link,
    ButtonGroup,
+   Box,
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
@@ -119,39 +120,69 @@ export default function ExtinctApi() {
          </Typography>
          {/* API description */}
          <Typography>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-            repellendus saepe distinctio quos, sunt harum odit enim dolorem
-            blanditiis possimus doloribus minus maxime, nesciunt quibusdam sed
-            iure rem rerum? Unde, officia voluptates quis quibusdam quod
-            praesentium placeat, est eveniet nostrum animi itaque quo maiores ea
-            reiciendis cupiditate fugiat officiis? Vel!
+            {`This API provides animals that are known to have become extinct in
+            the last 11.650 years(Holocene). Data was gathered by scraping `}
+            <Link
+               href="https://en.wikipedia.org/wiki/Timeline_of_extinctions_in_the_Holocene"
+               target="_blank"
+            >
+               this Wikipedia page
+            </Link>
+            {` and each animal's page individually.`}
          </Typography>
          {/* Example API call */}
-         <ButtonGroup
-            disableElevation
-            variant="contained"
-            aria-label="Disabled elevation buttons"
+         <Box
             sx={{
+               display: 'grid',
+               gap: 1,
+               gridTemplateColumns: 'repeat(2, 1fr)',
                marginTop: '3rem',
-               justifyContent: 'center',
-               width: '100%',
             }}
          >
-            <Button sx={{ textTransform: 'none', padding: '1rem' }} disabled>
-               {extinctApiUrl}
-            </Button>
-            <Button
-               onClick={handleCall}
-               sx={{ textTransform: 'none', padding: '1rem' }}
-            >
-               Get animal!
-            </Button>
-         </ButtonGroup>
-         {/* Display animal card data */}
-         {apiData && !isLoading && !isError && <AnimalCard data={apiData} />}
-         {isError && (
-            <Typography>Error Occured while trying to fetch.</Typography>
-         )}
+            <Box>
+               <Typography>Few stats</Typography>
+               <ButtonGroup
+                  disableElevation
+                  variant="contained"
+                  aria-label="Disabled elevation buttons"
+                  sx={{
+                     justifyContent: 'center',
+                     width: '500px',
+                  }}
+               >
+                  <Button
+                     sx={{
+                        textTransform: 'none',
+                        padding: '1rem',
+                        width: '350px',
+                     }}
+                     disabled
+                  >
+                     {extinctApiUrl}
+                  </Button>
+                  <Button
+                     onClick={handleCall}
+                     sx={{
+                        textTransform: 'none',
+                        padding: '1rem',
+                        width: '150px',
+                     }}
+                  >
+                     Get animal!
+                  </Button>
+               </ButtonGroup>
+               {/* Display animal card data */}
+               {apiData && !isLoading && !isError && (
+                  <AnimalCard data={apiData} />
+               )}
+               {isError && (
+                  <Typography>Error Occured while trying to fetch.</Typography>
+               )}
+            </Box>
+            <Box>
+               <Typography>Example response</Typography>
+            </Box>
+         </Box>
       </>
    );
 }
