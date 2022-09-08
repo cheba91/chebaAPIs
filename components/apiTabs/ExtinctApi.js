@@ -1,18 +1,13 @@
-import {
-   Typography,
-   Button,
-   CardActions,
-   Link,
-   ButtonGroup,
-   Box,
-   Grid,
-} from '@mui/material';
+import { Typography, Button, CardActions, Link, Grid } from '@mui/material';
 import { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { data as jsonData } from '../../utils/extinctJSONdata';
+import DisplayJson from '../ui/DisplayJson';
+
 const AnimalCard = ({ data }) => {
-   if (data) console.log('Have data', data);
+   if (data) console.log('Have data', JSON.stringify(data));
    return (
       <Card sx={{ maxWidth: 500, margin: '3rem auto 0' }}>
          {data.imageSrc && (
@@ -62,7 +57,14 @@ const AnimalCard = ({ data }) => {
          {data.wikiLink ? (
             <CardActions>
                <Link underline="none" href={data.wikiLink} target="_blank">
-                  <Button size="small" color="primary">
+                  <Button
+                     size="small"
+                     color="primary"
+                     variant="oulined"
+                     sx={{
+                        textTransform: 'none',
+                     }}
+                  >
                      Visit Wikipedia page
                   </Button>
                </Link>
@@ -151,9 +153,9 @@ export default function ExtinctApi() {
                {isError && (
                   <Typography>Error Occured while trying to fetch.</Typography>
                )}
-               <Typography>Example response</Typography>
             </Grid>
          </Grid>
+         <DisplayJson jsonData={jsonData} />
       </>
    );
 }
