@@ -120,6 +120,7 @@ export default function ExtinctApi() {
             {/* Left side */}
             <Grid item md={12} lg={6}>
                <Typography>Few stats</Typography>
+               {`API goes to sleep after 30 minutes, so it might take some time the first time you call it.`}
             </Grid>
             {/* Right Side */}
             <Grid
@@ -155,6 +156,7 @@ export default function ExtinctApi() {
                )}
             </Grid>
          </Grid>
+         <Typography sx={{ marginTop: '3rem' }}>Example return data</Typography>
          <DisplayJson jsonData={jsonData} />
       </>
    );
