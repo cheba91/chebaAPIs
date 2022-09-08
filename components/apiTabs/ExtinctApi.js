@@ -5,6 +5,7 @@ import {
    Link,
    ButtonGroup,
    Box,
+   Grid,
 } from '@mui/material';
 import { useState } from 'react';
 import Card from '@mui/material/Card';
@@ -45,7 +46,7 @@ const AnimalCard = ({ data }) => {
             {/* Location */}
             {data.location && (
                <Typography gutterBottom variant="p" component="div">
-                  {` Location: ${data.location}`}
+                  {`🌎 ${data.location}`}
                </Typography>
             )}
             {/* Description */}
@@ -91,23 +92,6 @@ export default function ExtinctApi() {
       }
    };
 
-   // useEffect(() => {
-   //    setIsLoading(true);
-   //    // fetch('https://random-data-api.com/api/v2/users?size=2&is_xml=true')
-   //    fetch(extinctApiUrl)
-   //       .then((res) => res.json())
-   //       .then((data) => {
-   //          data.status == 'success'
-   //             ? setApiData(data.data[0])
-   //             : setIsError(true);
-   //          // console.log(apiData);
-   //          setIsLoading(false);
-   //       });
-   // }, []);
-
-   // data.status == 'success'
-   // ? setApiData(data.data[0])
-   // : setIsError(true);
    return (
       <>
          <Typography
@@ -118,7 +102,7 @@ export default function ExtinctApi() {
             {`Extinct API`}
          </Typography>
          {/* API description */}
-         <Typography>
+         <Typography sx={{ marginBottom: '3rem' }}>
             {`This API provides animals that are known to have become extinct in
             the last 11.650 years(Holocene). Data was gathered by scraping `}
             <Link
@@ -129,47 +113,37 @@ export default function ExtinctApi() {
             </Link>
             {` and each animal's page individually.`}
          </Typography>
-         {/* Example API call */}
-         <Box
-            sx={{
-               display: 'grid',
-               gap: 1,
-               gridTemplateColumns: 'repeat(2, 1fr)',
-               marginTop: '3rem',
-            }}
-         >
-            <Box>
+         {/* Flex items */}
+         <Grid container sx={{ justifyContent: 'center' }}>
+            {/* Left side */}
+            <Grid item md={12} lg={6}>
                <Typography>Few stats</Typography>
-               <ButtonGroup
-                  disableElevation
+            </Grid>
+            {/* Right Side */}
+            <Grid
+               item
+               md={12}
+               lg={6}
+               sx={{
+                  paddingLeft: { md: 0, lg: '2rem' },
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+               }}
+            >
+               {/* Example API call */}
+               <Button
                   variant="contained"
-                  aria-label="Disabled elevation buttons"
+                  onClick={handleCall}
                   sx={{
-                     justifyContent: 'center',
-                     width: '500px',
+                     textTransform: 'none',
+                     marginLeft: 'auto',
+                     marginRight: 'auto',
+                     textAlign: 'center',
                   }}
                >
-                  <Button
-                     sx={{
-                        textTransform: 'none',
-                        padding: '1rem',
-                        width: '350px',
-                     }}
-                     disabled
-                  >
-                     {extinctApiUrl}
-                  </Button>
-                  <Button
-                     onClick={handleCall}
-                     sx={{
-                        textTransform: 'none',
-                        padding: '1rem',
-                        width: '150px',
-                     }}
-                  >
-                     Get animal!
-                  </Button>
-               </ButtonGroup>
+                  Call API
+               </Button>
                {/* Display animal card data */}
                {apiData && !isLoading && !isError && (
                   <AnimalCard data={apiData} />
@@ -177,11 +151,9 @@ export default function ExtinctApi() {
                {isError && (
                   <Typography>Error Occured while trying to fetch.</Typography>
                )}
-            </Box>
-            <Box>
                <Typography>Example response</Typography>
-            </Box>
-         </Box>
+            </Grid>
+         </Grid>
       </>
    );
 }
