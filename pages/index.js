@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import SocialIcons from '../components/SocialIcons';
 import ExtinctApi from '../components/apiTabs/ExtinctApi';
 import ToggleColorMode from '../components/ToggleColorMode';
-const drawerWidth = 250;
+const drawerWidth = 210;
 
 export default function ResponsiveDrawer({ toggleTheme }) {
    const apis = ['Extinct', 'Test'];
@@ -120,7 +120,7 @@ export default function ResponsiveDrawer({ toggleTheme }) {
             component="main"
             sx={{
                flexGrow: 1,
-               p: 5,
+               padding: { xs: '3rem 2vw', md: '3rem 5vw' },
                width: { sm: `calc(100% - ${drawerWidth}px)` },
             }}
          >

@@ -114,7 +114,10 @@ export default function ExtinctApi() {
             >
                this Wikipedia page
             </Link>
-            {` and each animal's page individually.`}
+            {` and each animal's page individually. You can view scraper and API code on `}
+            <Link href="https://github.com/cheba91/extinct-api" target="_blank">
+               this repo.
+            </Link>
          </Typography>
          {/* Flex items */}
          <Grid container sx={{ justifyContent: 'center' }}>
@@ -177,16 +180,22 @@ export default function ExtinctApi() {
             {/* Right Side */}
             <Grid
                item
-               md={12}
+               xs={12}
                lg={6}
                sx={{
-                  paddingLeft: { md: 0, lg: '2rem' },
+                  paddingLeft: { xs: 0, lg: '2rem' },
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
+                  paddingTop: { xs: '3rem', lg: 0 },
                }}
             >
-               <Typography sx={{ marginBottom: '2rem', textAlign: 'center' }}>
+               <Typography
+                  sx={{
+                     marginBottom: '2rem',
+                     textAlign: 'center',
+                  }}
+               >
                   {`API is hosted on Heroku and goes to sleep after 30 minutes of inactivity, so it might take some time the first time you call it.`}
                </Typography>
 

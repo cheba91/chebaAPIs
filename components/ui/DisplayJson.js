@@ -9,7 +9,7 @@ import { useTheme } from '@mui/system';
 export default function DisplayJson({ jsonData }) {
    const themeMode = useTheme().palette.mode;
    return (
-      <Box sx={{ width: '100%', height: '300px' }}>
+      <Box sx={{ width: '100%', height: '300px', maxWidth: '90vw' }}>
          <SyntaxHighlighter
             wrapLines={true}
             lineProps={{
