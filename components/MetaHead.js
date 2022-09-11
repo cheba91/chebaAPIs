@@ -9,7 +9,7 @@ export default function MetaHead({
 }) {
    const staticData = {
       baseUrl: 'https://www.cheba.me',
-      companyName: 'Cheba - Personal website',
+      companyName: 'Cheba - Web developer',
       twitterHandle: '@BlazCheba',
    };
    return (

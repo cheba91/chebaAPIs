@@ -17,7 +17,7 @@ import ToggleColorMode from '../components/ToggleColorMode';
 const drawerWidth = 210;
 
 export default function ResponsiveDrawer({ toggleTheme }) {
-   const apis = ['Extinct', 'Test'];
+   const apis = ['Extinct'];
    const [mobileOpen, setMobileOpen] = useState(false);
    const [currentTab, setCurrentTab] = useState(apis[0]);
 
@@ -127,7 +127,6 @@ export default function ResponsiveDrawer({ toggleTheme }) {
             <Toolbar />
             {/* Show correct API */}
             {currentTab === 'Extinct' && <ExtinctApi />}
-            {currentTab === 'Test' && 'Test'}
          </Box>
       </Box>
    );

@@ -7,7 +7,6 @@ import { data as jsonData } from '../../utils/extinctJSONdata';
 import DisplayJson from '../ui/DisplayJson';
 
 const AnimalCard = ({ data }) => {
-   if (data) console.log('Have data', JSON.stringify(data));
    return (
       <Card sx={{ maxWidth: 500, margin: '2rem auto 0' }}>
          {data.imageSrc && (
