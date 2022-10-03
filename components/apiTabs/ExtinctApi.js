@@ -123,13 +123,17 @@ export default function ExtinctApi() {
             {/* Left side */}
             <Grid item xs={12} lg={6}>
                <Typography sx={{ fontWeight: '600' }}>Few stats:</Typography>
-               <Typography>- 804 animals in total</Typography>
-               <Typography>- 220 are without image</Typography>
+               <Typography>&#9675; 804 animals in total</Typography>
+               <Typography>&#9675; 220 are without image</Typography>
                <Typography>
-                  - 6 are without description and their own Wiki page
+                  &#9675; 6 are without description and their own Wiki page
                </Typography>
-               <Typography>- 30 are without common name</Typography>
-               <Typography>- they all have binomial name</Typography>
+               <Typography>&#9675; 30 are without common name</Typography>
+               <Typography
+                  sx={{ paddingBottom: '1rem', borderBottom: '1px solid #ccc' }}
+               >
+                  &#9675; they all have binomial name
+               </Typography>
                <Typography
                   sx={{
                      fontWeight: '600',
@@ -153,7 +157,6 @@ export default function ExtinctApi() {
                <Typography
                   sx={{
                      paddingBottom: '1rem',
-                     borderBottom: '1px solid #ccc',
                   }}
                >{` &imageRequired={true/false} // default is true`}</Typography>
                <Typography
@@ -170,7 +173,7 @@ export default function ExtinctApi() {
                      marginTop: '1rem',
                   }}
                >
-                  {`https://extinct-api.herokuapp.com/api/v1/animal/{number}`}
+                  {`https://extinct-api.herokuapp.com/api/v1/animal/:number`}
                </Typography>
                <Typography>
                   Returns specified number of animals, accepts from 1 to 804.
